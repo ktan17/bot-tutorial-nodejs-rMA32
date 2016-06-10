@@ -39,7 +39,7 @@ function respond() {
     this.res.writeHead(200);
     var Randint = Math.floor(Math.random() * 100) + 1;
     var strRandint = "" + Randint;
-    var test = "29%";
+    var test = "29";
     var test2 = "29\%";
     postMessage(strRandint);
     postMessage(test);
