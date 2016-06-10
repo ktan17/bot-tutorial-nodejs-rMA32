@@ -5,7 +5,7 @@ var botID = process.env.BOT_ID;
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
-      botRegex = /^\/cool guy/;  botRegexSalt = /^\/salt/;
+      botRegex = /^\/cool guy/;  botRegexSalt = /^\/salt/; botRegexDB = /^\/dat boi/;
       botRegexRo=/^\/roll/;  
       botRegexSh = /^\/shrug/; 
       
@@ -15,11 +15,18 @@ function respond() {
     this.res.end();
   } 
   
+  else if(request.text && botRegexDB.test(request.text)) {
+    this.res.writeHead(200);
+    postMessage("https://i.groupme.com/960x472.jpeg.383d81fbfe004052bb0dbc9bc9d76e00");
+    this.res.end();
+  } 
+  
   else if(request.text && botRegexSalt.test(request.text)) {
     this.res.writeHead(200);
     postMessage("https://i.imgur.com/B5BSVqH.png");
     this.res.end();
   } 
+  
   else if(request.text && botRegexRo.test(request.text)) {
     this.res.writeHead(200);
     var Randint = Math.floor(Math.random() * 100) + 1;
