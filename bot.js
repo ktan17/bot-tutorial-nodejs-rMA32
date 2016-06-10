@@ -5,18 +5,13 @@ var botID = process.env.BOT_ID;
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
-      botRegex = /^\/cool guy/;  botRegexDL = /^\/DDL/i;botRegexSalt = /^\/salt/;
-      botRegexRo=/^\/roll/; botODB = /(.*\s+)(.*odb)(\s+.*)/i; botDuck = /^\/duck/;
-      botRegexP = /^\/PDL/i; botRegexSh = /^\/shrug/; 
+      botRegex = /^\/cool guy/;  botRegexSalt = /^\/salt/;
+      botRegexRo=/^\/roll/;  
+      botRegexSh = /^\/shrug/; 
       
   if(request.text && botRegex.test(request.text)) {
     this.res.writeHead(200);
     postMessage(cool());
-    this.res.end();
-  } 
-  else if(request.text && botRegexDL.test(request.text)) {
-    this.res.writeHead(200);
-    postMessage("http://daddyleagues.com/SRMFL/team/"+request.text.substring(5,8)+"/depthchart");
     this.res.end();
   } 
   
@@ -33,30 +28,11 @@ function respond() {
     this.res.end();
   }
 
-  else if(request.text && botRegexP.test(request.text)) {
-    this.res.writeHead(200);
-    var req = request.text.substring(5,request.text.length);
-    var rep = req.replace(/ /,"+");
-    postMessage("http://daddyleagues.com/SRMFL/players?name="+rep+"&position=all&team=all");
-    this.res.end();
-  }  
-
   else if(request.text && botRegexSh.test(request.text)) {
     this.res.writeHead(200);
     postMessage("¯\\_(ツ)_/¯");
     this.res.end();
   } 
-  
-  else if(request.text && botODB.test(request.text)) {
-    this.res.writeHead(200);
-    postMessage("OBJ*");
-    this.res.end();
-  } 
-  else if(request.text && botDuck.test(request.text)) {
-    this.res.writeHead(200);
-    postMessage("http://media3.giphy.com/media/YCseTHF2I6CCA/giphy.gif");
-    this.res.end();
-  }
   
   else {
     console.log("don't care");
