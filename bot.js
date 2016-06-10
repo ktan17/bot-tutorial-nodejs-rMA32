@@ -37,12 +37,9 @@ function respond() {
   } 
   else if(request.text && botRegexRo.test(request.text)) {
     this.res.writeHead(200);
-    var x = Math.floor(Math.random() * 100) + 1;
-    var y = 5;
-    var z = "" + y
-    postMessage(String.valueOf(y))
-    postMessage(z)
-    postMessage(String.valueOf(x)+"%");
+    var Randint = Math.floor(Math.random() * 100) + 1;
+    var strRandint = "" + Randint;
+    postMessage(strRandint+"%");
     this.res.end();
   }
   else if(request.text && botRegexRules.test(request.text)) {
