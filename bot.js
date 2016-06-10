@@ -38,7 +38,7 @@ function respond() {
   else if(request.text && botRegexRo.test(request.text)) {
     this.res.writeHead(200);
     var Randint = Math.floor(Math.random() * 100) + 1;
-    var strRandint = "" + Randint + "percent";
+    var strRandint = "" + Randint + " percent";
     postMessage(strRandint);
     this.res.end();
   }
