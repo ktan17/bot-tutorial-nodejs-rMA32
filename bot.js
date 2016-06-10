@@ -7,7 +7,7 @@ function respond() {
   var request = JSON.parse(this.req.chunks[0]),
       botRegex = /^\/cool guy/;  botRegexDL = /^\/DDL/i;botRegexSalt = /^\/salt/;
       botRegexRo=/^\/roll/; botODB = /(.*\s+)(.*odb)(\s+.*)/i; botDuck = /^\/duck/;
-      botRegexP = /^\/PDL/i;  botRegexTw = /^\/twitch/i; botRegexSb = /^\/sub/; botRegexSh = /^\/shrug/; 
+      botRegexP = /^\/PDL/i; botRegexSh = /^\/shrug/; 
       
   if(request.text && botRegex.test(request.text)) {
     this.res.writeHead(200);
@@ -41,16 +41,6 @@ function respond() {
     this.res.end();
   }  
 
-  else if(request.text && botRegexTw.test(request.text)) {
-    this.res.writeHead(200);
-    postMessage("http://www.twitch.tv/"+request.text.substring(8,request.text.length));
-    this.res.end();
-  } 
-  else if(request.text && botRegexSb.test(request.text)) {
-    this.res.writeHead(200);
-    postMessage("http://www.reddit.com/r/maddenall32");
-    this.res.end();
-  } 
   else if(request.text && botRegexSh.test(request.text)) {
     this.res.writeHead(200);
     postMessage("¯\\_(ツ)_/¯");
