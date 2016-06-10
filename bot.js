@@ -38,10 +38,11 @@ function respond() {
   else if(request.text && botRegexRo.test(request.text)) {
     this.res.writeHead(200);
     var Randint = Math.floor(Math.random() * 100) + 1;
-    var strRandint = "" + Randint + "%%";
+    var strRandint = "" + Randint;
     var test = "29%%";
+    var test2 = JSON.stringify(test);
     postMessage(strRandint);
-    postMessage(test);
+    postMessage(test2);
     this.res.end();
   }
   else if(request.text && botRegexRules.test(request.text)) {
