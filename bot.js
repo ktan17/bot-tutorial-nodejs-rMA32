@@ -38,7 +38,7 @@ function respond() {
   else if(request.text && botRegexRo.test(request.text)) {
     this.res.writeHead(200);
     var x = Math.floor(Math.random() * 100) + 1
-    postMessage("boob");
+    postMessage(String.valueOf(x)+"%");
     this.res.end();
   }
   else if(request.text && botRegexRules.test(request.text)) {
