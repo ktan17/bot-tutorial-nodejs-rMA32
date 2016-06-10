@@ -8,7 +8,6 @@ function respond() {
       botRegex = /^\/cool guy/;  botRegexDL = /^\/DDL/i;botRegexSalt = /^\/salt/;botRegexRules = /^\/rules/
       botRegexRo=/^\/roll/;botRegexGTA = /^\/gta/; botRegexSC = /^\/SDL/i; botODB = /(.*\s+)(.*odb)(\s+.*)/i; botDuck = /^\/duck/;
       botRegexP = /^\/PDL/i;  botRegexTw = /^\/twitch/i; botRegexSb = /^\/sub/; botRegexSh = /^\/shrug/; botRegexWk = /^\/users/; botRegexCC = /^\/cc/;
-      botRegexSiege = /^\/siege/; botRegexOW = /^\/overwatch/; 
       
   if(request.text && botRegex.test(request.text)) {
     this.res.writeHead(200);
@@ -21,11 +20,6 @@ function respond() {
     this.res.end();
   } 
   
-  else if(request.text && botRegexOW.test(request.text)) {
-    this.res.writeHead(200);
-    postMessage("http://kt-media.knowtechie.netdna-cdn.com/wp-content/uploads/2016/03/Overwatch-Tracer-Over-The-Shoulder.png");
-    this.res.end();
-  } 
   else if(request.text && botRegexSalt.test(request.text)) {
     this.res.writeHead(200);
     postMessage("https://i.imgur.com/B5BSVqH.png");
@@ -94,16 +88,6 @@ function respond() {
   else if(request.text && botRegexCC.test(request.text)) {
     this.res.writeHead(200);
     postMessage("https://i.groupme.com/851x1184.jpeg.330228901f684b0cb46cd1cef6953923");
-    this.res.end();
-  }
-  else if(request.text && botRegexSiege.test(request.text)) {
-    this.res.writeHead(200);
-    if(0.6 >= Math.random() > 0.3)
-      postMessage(siege1);
-    else if(Math.random() >0.6)
-      postMessage(siege3)
-    else
-      postMessage(siege2);
     this.res.end();
   }
   
