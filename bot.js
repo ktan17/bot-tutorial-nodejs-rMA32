@@ -39,7 +39,7 @@ function respond() {
     this.res.writeHead(200);
     var x = Math.floor(Math.random() * 100) + 1;
     var y = 5;
-    var z = String.valueOf(y)
+    var z = "shit"
     postMessage(String.valueOf(y))
     postMessage(z)
     postMessage(String.valueOf(x)+"%");
