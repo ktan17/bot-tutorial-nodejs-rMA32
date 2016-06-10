@@ -5,9 +5,9 @@ var botID = process.env.BOT_ID;
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
-      botRegex = /^\/cool guy/;  botRegexDL = /^\/DDL/i;botRegexSalt = /^\/salt/;botRegexRules = /^\/rules/
+      botRegex = /^\/cool guy/;  botRegexDL = /^\/DDL/i;botRegexSalt = /^\/salt/;
       botRegexRo=/^\/roll/; botODB = /(.*\s+)(.*odb)(\s+.*)/i; botDuck = /^\/duck/;
-      botRegexP = /^\/PDL/i;  botRegexTw = /^\/twitch/i; botRegexSb = /^\/sub/; botRegexSh = /^\/shrug/; botRegexWk = /^\/users/; botRegexCC = /^\/cc/;
+      botRegexP = /^\/PDL/i;  botRegexTw = /^\/twitch/i; botRegexSb = /^\/sub/; botRegexSh = /^\/shrug/; 
       
   if(request.text && botRegex.test(request.text)) {
     this.res.writeHead(200);
@@ -32,11 +32,6 @@ function respond() {
     postMessage(strRandint);
     this.res.end();
   }
-  else if(request.text && botRegexRules.test(request.text)) {
-    this.res.writeHead(200);
-    postMessage("https://docs.google.com/document/d/1hSuEG7oplnx4IX6HGsMOjsWb9TCqC4-F1NLjuBz5PCM/edit");
-    this.res.end();
-  } 
 
   else if(request.text && botRegexP.test(request.text)) {
     this.res.writeHead(200);
@@ -61,11 +56,7 @@ function respond() {
     postMessage("¯\\_(ツ)_/¯");
     this.res.end();
   } 
-  else if(request.text && botRegexWk.test(request.text)) {
-    this.res.writeHead(200);
-    postMessage("https://docs.google.com/spreadsheets/d/1kJqQWCq3RKiTrd4f71FFNKr-Y0ppJzjk0fSF0rP6Bto/edit?usp=sharing");
-    this.res.end();
-  } 
+  
   else if(request.text && botODB.test(request.text)) {
     this.res.writeHead(200);
     postMessage("OBJ*");
@@ -74,11 +65,6 @@ function respond() {
   else if(request.text && botDuck.test(request.text)) {
     this.res.writeHead(200);
     postMessage("http://media3.giphy.com/media/YCseTHF2I6CCA/giphy.gif");
-    this.res.end();
-  }
-  else if(request.text && botRegexCC.test(request.text)) {
-    this.res.writeHead(200);
-    postMessage("https://i.groupme.com/851x1184.jpeg.330228901f684b0cb46cd1cef6953923");
     this.res.end();
   }
   
