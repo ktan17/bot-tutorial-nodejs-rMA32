@@ -19,10 +19,42 @@ function respond() {
     
     var msg = "" + request.text;
     var fighter1 = msg.replace(botRegexFight, "$1");
+    var fighter2 = msg.replace(botRegexFight, "$2");
     
     this.res.writeHead(200);
-    postMessage(fighter1);
-    postMessage("success");
+    
+    var fightDeterminant = Math.Random;
+    
+    if (0 <= fightDeterminant < 0.1) {
+      
+      postMessage("Neither would win; they would tie");
+      
+    }
+    
+    else if (0.1 <= fightDeterminant < 0.325) {
+      
+      postMessage(fighter1 + " would barely win");
+      
+    }
+    
+    else if (0.325 <= fightDeterminant < 0.55) {
+      
+      postMessage(fighter1 + " would DESTROY " + fighter2);
+      
+    }
+    
+    else if (0.55 <= fightDeterminant < 0.775) {
+      
+      postMessage(fighter2 + " would barely win");
+      
+    }
+    
+    else if (0.775 <= fightDeterminant){
+      
+      postMessage(fighter2 + " would DESTROY " + fighter1);
+      
+    }
+  
     this.res.end();
     
   }
