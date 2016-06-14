@@ -18,9 +18,10 @@ function respond() {
   else if(request.text && botRegexFight.test(request.text)){
     
     var msg = "" + request.text;
+    var fighter1 = msg.replace(botRegexFight, "$1");
     
     this.res.writeHead(200);
-    postMessage(msg);
+    postMessage(fighter1);
     postMessage("success");
     this.res.end();
     
