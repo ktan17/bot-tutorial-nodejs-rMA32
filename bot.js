@@ -23,8 +23,9 @@ function respond() {
     
     this.res.writeHead(200);
     
-    var fightDeterminant = new Math.Random;
-    
+    var fightDeterminant = Math.Random;
+    var strfig = "" + fightDeterminant;
+    postMessage(strfig);
     if (0 <= fightDeterminant < 0.1) {
       
       postMessage("Neither would win; they would tie");
