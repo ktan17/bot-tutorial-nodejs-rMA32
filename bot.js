@@ -17,10 +17,10 @@ function respond() {
   
   else if(request.text && botRegexFight.test(request.text)){
     
-    
+    var msg = "" + request.text;
     
     this.res.writeHead(200);
-
+    postMessage(msg);
     postMessage("success");
     this.res.end();
     
