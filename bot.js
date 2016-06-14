@@ -17,8 +17,7 @@ function respond() {
   
   else if(request.text && botRegexFight.test(request.text)){
     
-    var fighter1 = request.replace(botRegexFight, "$1");
-    var fighter2 = request.replace(botRegexFight, "$2");
+    
     
     this.res.writeHead(200);
 
