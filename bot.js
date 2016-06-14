@@ -23,7 +23,7 @@ function respond() {
     
     this.res.writeHead(200);
     
-    var fightDeterminant = Math.Random;
+    var fightDeterminant = new Math.Random;
     
     if (0 <= fightDeterminant < 0.1) {
       
