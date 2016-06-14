@@ -22,6 +22,8 @@ function respond() {
     
     this.res.writeHead(200);
     postMessage(fighter1);
+    postMessage(fighter2);
+    postMessage("success");
     this.res.end();
     
   }
