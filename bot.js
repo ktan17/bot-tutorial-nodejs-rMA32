@@ -6,7 +6,7 @@ var botID = process.env.BOT_ID;
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
       botRegex = /^\/cool guy/;  botRegexSalt = /^\/salt/; botRegexDB = /^\/dat boi/;
-      botRegexRo = /^\/roll/;   botRegexFight = /^\/fight\s(\w+)\s(\w+)/;
+      botRegexRo = /^\/roll/;   botRegexFight = /^\/fight\s(\w+)\s(\w+)\b/;
       botRegexSh = /^\/shrug/; 
       
   if(request.text && botRegex.test(request.text)) {
@@ -21,8 +21,7 @@ function respond() {
     var fighter2 = request.replace(botRegexFight, "$2");
     
     this.res.writeHead(200);
-    postMessage(fighter1);
-    postMessage(fighter2);
+
     postMessage("success");
     this.res.end();
     
