@@ -23,7 +23,7 @@ function respond() {
     
     this.res.writeHead(200);
     
-    var fightDeterminant = Math.random;
+    var fightDeterminant = Math.random();
     var strfig = "" + fightDeterminant;
     postMessage(strfig);
     if (0 <= fightDeterminant < 0.1) {
