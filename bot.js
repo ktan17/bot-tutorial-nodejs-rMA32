@@ -7,13 +7,35 @@ function respond() {
   var request = JSON.parse(this.req.chunks[0]),
       botRegex = /^\/cool guy/;  botRegexSalt = /^\/salt/; botRegexDB = /^\/dat boi/;
       botRegexRo = /^\/roll/;   botRegexFight = /^\/fight\s(\w+)\s(\w+)\b/;
-      botRegexSh = /^\/shrug/; 
+      botRegexSh = /^\/shrug/;    botRegexDecide = /^\/decide/;
       
   if(request.text && botRegex.test(request.text)) {
     this.res.writeHead(200);
     postMessage(cool());
     this.res.end();
   } 
+  
+  else if(request.text && botRegexDecide.test(request.text)){
+    
+    var decider = Math.random();
+    
+    this.res.writeHead(200);
+    
+    if (decider < 0.5) {
+    
+    postMessage("Yes.");
+    
+    }
+    
+    else {
+    
+    postMessage("No.");
+    
+    }
+    
+    this.res.end();
+    
+  }
   
   else if(request.text && botRegexFight.test(request.text)){
     
