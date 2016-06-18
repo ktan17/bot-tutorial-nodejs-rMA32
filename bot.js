@@ -7,13 +7,19 @@ function respond() {
   var request = JSON.parse(this.req.chunks[0]),
       botRegex = /^\/cool guy/;  botRegexSalt = /^\/salt/; botRegexDB = /^\/dat boi/;
       botRegexRo = /^\/roll/;   botRegexFight = /^\/fight\s(\w+)\s(\w+)\b/;
-      botRegexSh = /^\/shrug/;    botRegexDecide = /^\/decide/;
+      botRegexSh = /^\/shrug/;    botRegexDecide = /^\/decide/;   botRegexUSC = /^\/USC/;
       
   if(request.text && botRegex.test(request.text)) {
     this.res.writeHead(200);
     postMessage(cool());
     this.res.end();
   } 
+  
+  else if(request.text && botRegexUSC.test(request.text)){
+    this.res.writeHead(200);
+    postMessage("FUCK SC");
+    this.res.end();
+  }
   
   else if(request.text && botRegexDecide.test(request.text)){
     
