@@ -21,12 +21,11 @@ function respond() {
     postMessage("titty");
     this.res.end();
     
-    var message = request.text;
-    window.localStorage.setItem("remembered", message);
+    
     
   }
   
-  else if(request.text && botRegexCalm.test(request.text)){
+  else if(request.text && botRegexOut.test(request.text)){
     
     var rememberedMsg = window.localStorage.getItem("remembered");
     
