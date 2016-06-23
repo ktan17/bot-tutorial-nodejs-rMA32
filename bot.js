@@ -18,13 +18,13 @@ function respond() {
   else if(request.text && botRegexRem.test(request.text)){
     
     var message = request.text;
-    localStorage.setItem("remembered", message);
+    window.localStorage.setItem("remembered", message);
     
   }
   
   else if(request.text && botRegexCalm.test(request.text)){
     
-    var rememberedMsg = localStorage.getItem("remembered");
+    var rememberedMsg = window.localStorage.getItem("remembered");
     
     this.res.writeHead(200);
     postMessage(rememberedMsg);
