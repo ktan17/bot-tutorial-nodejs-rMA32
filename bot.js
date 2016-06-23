@@ -21,7 +21,9 @@ function respond() {
     postMessage("titty");
     this.res.end();
     
-    
+    var message = "" + request.text;
+    var rmessage = message.replace(botRegexRem, "$1");
+    window.localStorage.setItem("remembered", rmessage);
     
   }
   
