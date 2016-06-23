@@ -6,14 +6,30 @@ var botID = process.env.BOT_ID;
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
       botRegex = /^\/cool guy/;  botRegexSalt = /^\/salt/; botRegexDB = /^\/dat boi/;   botRegexCalm = /^\/calmdown/;
-      botRegexRo = /^\/roll/;   botRegexFight = /^\/fight\s(\w+)\s(\w+)\b/;
-      botRegexSh = /^\/shrug/;    botRegexDecide = /^\/decide/;   botRegexUSC = /^\/USC/;
+      botRegexRo = /^\/roll/;   botRegexFight = /^\/fight\s(\w+)\s(\w+)\b/;   botRegexRem = /^\/remember\s(\w+)\b/;
+      botRegexSh = /^\/shrug/;    botRegexDecide = /^\/decide/;   botRegexUSC = /^\/USC/;   botRegexOut = /^\/output/;
       
   if(request.text && botRegex.test(request.text)) {
     this.res.writeHead(200);
     postMessage(cool());
     this.res.end();
   } 
+  
+  else if(request.text && botRegexRem.test(request.text)){
+    
+    var message = request.text;
+    localStorage.setItem("remembered", message);
+    
+  }
+  
+  else if(request.text && botRegexCalm.test(request.text)){
+    
+    var rememberedMsg = localStorage.getItem("remembered");
+    
+    this.res.writeHead(200);
+    postMessage(rememberedMsg);
+    this.res.end();
+  }
   
   else if(request.text && botRegexCalm.test(request.text)){
     this.res.writeHead(200);
