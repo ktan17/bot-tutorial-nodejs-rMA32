@@ -1,12 +1,13 @@
 var HTTPS = require('https');
 var cool = require('cool-ascii-faces');
+var emoji = require('node-emoji');
 
 var botID = process.env.BOT_ID;
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
       botRegex = /^\/cool guy/;  botRegexSalt = /^\/salt/; botRegexDB = /^\/dat boi/;   botRegexCalm = /^\/calmdown/;
-      botRegexRo = /^\/roll/;   botRegexFight = /^\/fight\s(\w+)\s(\w+)\b/;  
+      botRegexRo = /^\/roll/;   botRegexFight = /^\/fight\s(\w+)\s(\w+)\b/;   botRegexThot = /^\/thot/;
       botRegexSh = /^\/shrug/;    botRegexDecide = /^\/decide/;   botRegexUSC = /^\/USC/;   
       
   if(request.text && botRegex.test(request.text)) {
@@ -18,6 +19,12 @@ function respond() {
   else if(request.text && botRegexCalm.test(request.text)){
     this.res.writeHead(200);
     postMessage("https://i.groupme.com/479x270.gif.04ad069b898f4207b6a0b98789a0fed3");
+    this.res.end();
+  }
+  
+  else if(request.text && botRegexThot.test(request.text)){
+    this.res.writeHead(200);
+    postMessage(emoji.get('weary'));
     this.res.end();
   }
   
