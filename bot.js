@@ -6,36 +6,14 @@ var botID = process.env.BOT_ID;
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
       botRegex = /^\/cool guy/;  botRegexSalt = /^\/salt/; botRegexDB = /^\/dat boi/;   botRegexCalm = /^\/calmdown/;
-      botRegexRo = /^\/roll/;   botRegexFight = /^\/fight\s(\w+)\s(\w+)\b/;   botRegexRem = /^\/remember\s(\w+)\b/;
-      botRegexSh = /^\/shrug/;    botRegexDecide = /^\/decide/;   botRegexUSC = /^\/USC/;   botRegexOut = /^\/output/;
+      botRegexRo = /^\/roll/;   botRegexFight = /^\/fight\s(\w+)\s(\w+)\b/; 
+      botRegexSh = /^\/shrug/;    botRegexDecide = /^\/decide/;   botRegexUSC = /^\/USC/;   
       
   if(request.text && botRegex.test(request.text)) {
     this.res.writeHead(200);
     postMessage(cool());
     this.res.end();
   } 
-  
-  else if(request.text && botRegexRem.test(request.text)){
-    
-    this.res.writeHead(200);
-    postMessage("titty");
-    this.res.end();
-    
-    var message = "" + request.text;
-    var rmessage = message.replace(botRegexRem, "$1");
-    localStorage.setItem("remembered", rmessage);
-    
-  }
-  
-  else if(request.text && botRegexOut.test(request.text)){
-    
-    var rememberedMsg = localStorage.getItem("remembered");
-    
-    this.res.writeHead(200);
-    postMessage(rememberedMsg);
-    postMessage("titty2");
-    this.res.end();
-  }
   
   else if(request.text && botRegexCalm.test(request.text)){
     this.res.writeHead(200);
