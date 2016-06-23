@@ -17,6 +17,10 @@ function respond() {
   
   else if(request.text && botRegexRem.test(request.text)){
     
+    this.res.writeHead(200);
+    postMessage("titty");
+    this.res.end();
+    
     var message = request.text;
     window.localStorage.setItem("remembered", message);
     
@@ -28,6 +32,7 @@ function respond() {
     
     this.res.writeHead(200);
     postMessage(rememberedMsg);
+    postMessage("titty2");
     this.res.end();
   }
   
