@@ -23,13 +23,13 @@ function respond() {
     
     var message = "" + request.text;
     var rmessage = message.replace(botRegexRem, "$1");
-    window.localStorage.setItem("remembered", rmessage);
+    localStorage.setItem("remembered", rmessage);
     
   }
   
   else if(request.text && botRegexOut.test(request.text)){
     
-    var rememberedMsg = window.localStorage.getItem("remembered");
+    var rememberedMsg = localStorage.getItem("remembered");
     
     this.res.writeHead(200);
     postMessage(rememberedMsg);
