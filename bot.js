@@ -6,7 +6,7 @@ var botID = process.env.BOT_ID;
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
       botRegex = /^\/cool guy/;  botRegexSalt = /^\/salt/; botRegexDB = /^\/dat boi/;   botRegexCalm = /^\/calmdown/;
-      botRegexRo = /^\/roll/;   botRegexFight = /^\/fight\s(\w+)\s(\w+)\b/;   botRegexThot = /^\/thot/;
+      botRegexRo = /^\/roll/;   botRegexFight = /^\/fight\s(\w+)\s(\w+)\b/;   botRegexThot = /^\/thot/;   botRegexShan = /^\/shaneli/;
       botRegexSh = /^\/shrug/;    botRegexDecide = /^\/decide/;   botRegexUSC = /^\/USC/;   botRegexNoot = /^\/noot/;
       botRegexWin = /^\/Winona/;
       
@@ -28,9 +28,15 @@ function respond() {
     this.res.end();
   }
   
-  else if(request.text && botRegexCalm.test(request.text)){
+  else if(request.text && botRegexNoot.test(request.text)){
     this.res.writeHead(200);
-    postMessage("https://i.groupme.com/479x270.gif.04ad069b898f4207b6a0b98789a0fed3");
+    postMessage("https://i.groupme.com/350x263.gif.0b1d452b65ea4bb1b58253f36018e087");
+    this.res.end();
+  }
+  
+  else if(request.text && botRegexShan.test(request.text)){
+    this.res.writeHead(200);
+    postMessage("THAT'S MY WIFE BACK OFF");
     this.res.end();
   }
   
