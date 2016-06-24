@@ -8,12 +8,19 @@ function respond() {
       botRegex = /^\/cool guy/;  botRegexSalt = /^\/salt/; botRegexDB = /^\/dat boi/;   botRegexCalm = /^\/calmdown/;
       botRegexRo = /^\/roll/;   botRegexFight = /^\/fight\s(\w+)\s(\w+)\b/;   botRegexThot = /^\/thot/;
       botRegexSh = /^\/shrug/;    botRegexDecide = /^\/decide/;   botRegexUSC = /^\/USC/;   botRegexNoot = /^\/noot/;
+      botRegexWin = /^\/Winona/;
       
   if(request.text && botRegex.test(request.text)) {
     this.res.writeHead(200);
     postMessage(cool());
     this.res.end();
   } 
+  
+  else if(request.text && botRegexWin.test(request.text)){
+    this.res.writeHead(200);
+    postMessage("One of of the nicest people that I know. I think we all owe her thankss. <3 for not only being the cutest person on Earth, but for always being so positive and so accepting of all of us. <3");
+    this.res.end();
+  }
   
   else if(request.text && botRegexNoot.test(request.text)){
     this.res.writeHead(200);
