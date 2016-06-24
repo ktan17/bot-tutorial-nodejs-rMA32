@@ -18,7 +18,7 @@ function respond() {
   
   else if(request.text && botRegexWin.test(request.text)){
     this.res.writeHead(200);
-    postMessage("One of of the nicest people that I know. I think we all owe her thankss. <3 for not only being the cutest person on Earth, but for always being so positive and so accepting of all of us. <3");
+    postMessage("One of of the nicest people that I know. I think we all owe her thanks for not only being the cutest person on Earth, but for always being so positive and so accepting of all of us. <3");
     this.res.end();
   }
   
