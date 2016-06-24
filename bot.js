@@ -7,13 +7,19 @@ function respond() {
   var request = JSON.parse(this.req.chunks[0]),
       botRegex = /^\/cool guy/;  botRegexSalt = /^\/salt/; botRegexDB = /^\/dat boi/;   botRegexCalm = /^\/calmdown/;
       botRegexRo = /^\/roll/;   botRegexFight = /^\/fight\s(\w+)\s(\w+)\b/;   botRegexThot = /^\/thot/;
-      botRegexSh = /^\/shrug/;    botRegexDecide = /^\/decide/;   botRegexUSC = /^\/USC/;   
+      botRegexSh = /^\/shrug/;    botRegexDecide = /^\/decide/;   botRegexUSC = /^\/USC/;   botRegexNoot = /^\/noot/;
       
   if(request.text && botRegex.test(request.text)) {
     this.res.writeHead(200);
     postMessage(cool());
     this.res.end();
   } 
+  
+  else if(request.text && botRegexNoot.test(request.text)){
+    this.res.writeHead(200);
+    postMessage("https://i.groupme.com/350x263.gif.0b1d452b65ea4bb1b58253f36018e087");
+    this.res.end();
+  }
   
   else if(request.text && botRegexCalm.test(request.text)){
     this.res.writeHead(200);
