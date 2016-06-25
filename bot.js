@@ -22,7 +22,6 @@ function respond() {
     var google = "www.google.com/search?q=" + query.replace(' ','+');
     
     this.res.writeHead(200);
-    postMessage(query);
     postMessage(google);
     this.res.end();
   }
