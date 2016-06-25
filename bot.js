@@ -5,10 +5,9 @@ var botID = process.env.BOT_ID;
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
-      botRegex = /^\/cool guy/;  botRegexSalt = /^\/salt/; botRegexDB = /^\/dat boi/;   botRegexCalm = /^\/calmdown/;
+      botRegex = /^\/cool guy/;  botRegexSalt = /^\/salt/; botRegexDB = /^\/dat boi/;   botRegexCalm = /^\/calmdown/;   botRegexGoogle = /^\/g\s/;
       botRegexRo = /^\/roll/;   botRegexFight = /^\/fight\s(\w+)\s(\w+)\b/;   botRegexThot = /^\/thot/;   botRegexShan = /^\/shaneli/;
       botRegexSh = /^\/shrug/;    botRegexDecide = /^\/decide/;   botRegexUSC = /^\/USC/;   botRegexNoot = /^\/noot/;
-      botRegexWin = /^\/Winona/;
       
   if(request.text && botRegex.test(request.text)) {
     this.res.writeHead(200);
@@ -16,9 +15,14 @@ function respond() {
     this.res.end();
   } 
   
-  else if(request.text && botRegexWin.test(request.text)){
+  else if(request.text && botRegexGoogle.test(request.text)){
+    
+    var message = "" + request.text;
+    var query = message.substring(3);
+    var google = "www.google.com/search?q=" + query.replace("\s","+");
+    
     this.res.writeHead(200);
-    postMessage("One of of the nicest people that I know. I think we all owe her thanks for not only being the cutest person on Earth, but for always being so positive and so accepting of all of us. <3");
+    postMessage(google);
     this.res.end();
   }
   
