@@ -19,7 +19,7 @@ function respond() {
     
     var message = "" + request.text;
     var query = message.substring(3);
-    var google = "www.google.com/search?q=" + query.replace("\s","+");
+    var google = "www.google.com/search?q=" + query.replace(" ","+");
     
     this.res.writeHead(200);
     postMessage(google);
