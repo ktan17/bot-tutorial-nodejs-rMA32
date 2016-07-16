@@ -37,8 +37,8 @@ function respond() {
     
     var sexdecider = Math.random();
     var sexmsg = "" + request.text;
-    var sexer1 = msg.replace(botRegexSex, "$1");
-    var sexer2 = msg.replace(botRegexSex, "$2");
+    var sexer1 = sexmsg.replace(botRegexSex, "$1");
+    var sexer2 = sexmsg.replace(botRegexSex, "$2");
     
     var sexmessage1 = "Top: " + sexer1 + ", Bottom: " + sexer2;
     var sexmessage2 = "Top: " + sexer2 + ", Bottom: " + sexer1;
