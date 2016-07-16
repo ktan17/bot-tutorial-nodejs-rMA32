@@ -40,17 +40,20 @@ function respond() {
     var sexer1 = msg.replace(botRegexSex, "$1");
     var sexer2 = msg.replace(botRegexSex, "$2");
     
+    var sexmessage1 = "Top: " + sexer1 + ", Bottom: " + sexer2;
+    var sexmessage2 = "Top: " + sexer2 + ", Bottom: " + sexer1;
+    
     this.res.writeHead(200);
     
     if (sexdecider < 0.5) {
     
-    postMessage("Top: " + sexer1 + ", Bottom: " + sexer2);
+    postMessage(sexmessage1);
     
     }
     
     else {
     
-    postMessage("Top: " + sexer2 + ", Bottom: " + sexer1);
+    postMessage(sexmessage2);
     
     }
     
